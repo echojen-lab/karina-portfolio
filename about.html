@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="認識婚禮攝影師 Karina，以及她用影像珍藏愛情故事的初心。">
+    <title>About — Karina</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ctext x='32' y='47' font-family='serif' font-size='48' text-anchor='middle' fill='%23fff'%3EK%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Pinyon+Script&family=Viaoda+Libre&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="animations.css">
+    <script src="animations.js" defer></script>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: "DM Sans", sans-serif;
+        background: #000;
+        color: #fff;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-width: 320px;
+        margin: 0;
+        background: #000;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .site-header {
+        display: flex;
+        width: min(100% - 96px, 1440px);
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding: 34px 0;
+      }
+
+      .wordmark {
+        font-family: "Viaoda Libre", serif;
+        font-size: 1.65rem;
+        letter-spacing: 0.06em;
+      }
+
+      .site-nav {
+        display: flex;
+        gap: clamp(22px, 4vw, 56px);
+        align-items: center;
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+      }
+
+      .site-nav a {
+        padding: 8px 0;
+        transition: opacity 180ms ease;
+      }
+
+      .site-nav a[aria-current="page"] {
+        border-bottom: 1px solid currentColor;
+      }
+
+      .site-nav a:hover,
+      .site-nav a:focus-visible {
+        opacity: 0.65;
+      }
+
+      .about {
+        display: grid;
+        width: min(100% - 96px, 1120px);
+        grid-template-columns: 280px minmax(0, 1fr);
+        gap: clamp(56px, 10vw, 144px);
+        align-items: center;
+        margin: 0 auto;
+        padding: clamp(72px, 11vw, 148px) 0;
+      }
+
+      .portrait {
+        display: grid;
+        width: 280px;
+        aspect-ratio: 1;
+        place-items: center;
+        border-radius: 50%;
+        background: #fff;
+        color: #000;
+        font-family: "Viaoda Libre", serif;
+        font-size: 6rem;
+        line-height: 1;
+      }
+
+      .bio h1 {
+        margin: 0 0 32px;
+        font-family: "Viaoda Libre", serif;
+        font-size: clamp(3rem, 6vw, 5rem);
+        font-weight: 400;
+        line-height: 1;
+      }
+
+      .bio p {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 2;
+      }
+
+      .bio p + p {
+        margin-top: 20px;
+      }
+
+      .testimonial {
+        width: min(100% - 96px, 1120px);
+        margin: 0 auto;
+        padding: 0 0 clamp(96px, 14vw, 184px);
+        text-align: center;
+      }
+
+      .testimonial blockquote {
+        max-width: 950px;
+        margin: 0 auto;
+        font-family: "Pinyon Script", cursive;
+        font-size: clamp(2.4rem, 6vw, 5rem);
+        font-style: italic;
+        line-height: 1.35;
+      }
+
+      .testimonial figcaption {
+        margin-top: 28px;
+        font-size: 0.78rem;
+        letter-spacing: 0.14em;
+      }
+
+      .site-footer {
+        padding: 26px 24px 32px;
+        border-top: 1px solid rgb(255 255 255 / 20%);
+        text-align: center;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+      }
+
+      @media (max-width: 700px) {
+        .site-header {
+          width: min(100% - 40px, 560px);
+          flex-direction: column;
+          gap: 20px;
+          padding: 24px 0;
+        }
+
+        .site-nav {
+          width: 100%;
+          justify-content: center;
+          gap: clamp(18px, 6vw, 34px);
+          font-size: 0.68rem;
+        }
+
+        .about {
+          width: min(100% - 40px, 560px);
+          grid-template-columns: 1fr;
+          justify-items: center;
+          gap: 44px;
+          padding: 72px 0 80px;
+        }
+
+        .portrait {
+          width: min(280px, 72vw);
+        }
+
+        .bio h1 {
+          margin-bottom: 24px;
+          text-align: center;
+        }
+
+        .testimonial {
+          width: min(100% - 40px, 560px);
+          padding-bottom: 96px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="index.html" aria-label="Karina 首頁">Karina</a>
+      <nav class="site-nav" aria-label="主要導覽">
+        <a href="index.html">首頁</a>
+        <a href="gallery.html">作品集</a>
+        <a href="about.html" aria-current="page">關於</a>
+        <a href="contact.html">聯繫</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="about" aria-labelledby="about-title">
+        <div class="portrait" role="img" aria-label="Karina 的圓形頭像佔位符">K</div>
+        <div class="bio">
+          <h1 id="about-title">關於 Karina</h1>
+          <p>我是 Karina，一位相信每段愛情都有自己節奏的婚禮攝影師。我喜歡安靜地觀察，在目光交會、輕聲細語與親友的笑容之間，捕捉那些不經安排卻最真實的瞬間。</p>
+          <p>對我來說，婚禮攝影不只是記錄一天的模樣，更是替你們珍藏共同走過的故事。我以自然、細膩的方式陪伴每一對新人，讓影像在多年以後，仍能帶你回到那份溫柔而真切的心情。</p>
+        </div>
+      </section>
+
+      <figure class="testimonial">
+        <h2>來自新人的回憶</h2>
+        <blockquote>“Karina captured not just how our day looked, but exactly how it felt.”</blockquote>
+        <figcaption>— Karina，婚禮攝影師</figcaption>
+      </figure>
+    </main>
+
+    <footer class="site-footer">KARINA WEDDING PHOTOGRAPHY</footer>
+  </body>
+</html>

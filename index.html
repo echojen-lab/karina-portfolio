@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Karina 婚禮攝影，以真摯而細膩的影像，珍藏每一段愛的故事。">
+    <title>Karina</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ctext x='32' y='47' font-family='serif' font-size='48' text-anchor='middle' fill='%23fff'%3EK%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Pinyon+Script&family=Viaoda+Libre&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="animations.css">
+    <script src="animations.js" defer></script>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: "DM Sans", sans-serif;
+        background: #000;
+        color: #fff;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-width: 320px;
+        margin: 0;
+        background: #000;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .hero {
+        position: relative;
+        display: flex;
+        min-height: 100vh;
+        min-height: 100svh;
+        flex-direction: column;
+        overflow: hidden;
+        background: #000;
+        isolation: isolate;
+      }
+
+      .hero::before,
+      .hero::after {
+        position: absolute;
+        z-index: -1;
+        content: "";
+        inset: 0;
+      }
+
+      .hero::before {
+        background: url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2400&q=85") center 48% / cover no-repeat;
+        filter: grayscale(1);
+      }
+
+      .hero::after {
+        background: linear-gradient(180deg, rgb(0 0 0 / 52%) 0%, rgb(0 0 0 / 25%) 42%, rgb(0 0 0 / 62%) 100%);
+      }
+
+      .site-header {
+        display: flex;
+        width: min(100% - 96px, 1440px);
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding: 34px 0;
+      }
+
+      .wordmark {
+        font-family: "Viaoda Libre", serif;
+        font-size: 1.65rem;
+        letter-spacing: 0.06em;
+      }
+
+      .site-nav {
+        display: flex;
+        gap: clamp(22px, 4vw, 56px);
+        align-items: center;
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+      }
+
+      .site-nav a {
+        padding: 8px 0;
+        transition: opacity 180ms ease;
+      }
+
+      .site-nav a[aria-current="page"] {
+        border-bottom: 1px solid currentColor;
+      }
+
+      .site-nav a:hover,
+      .site-nav a:focus-visible {
+        opacity: 0.65;
+      }
+
+      .hero-copy {
+        display: grid;
+        flex: 1;
+        align-content: center;
+        justify-items: center;
+        padding: 32px 24px 100px;
+        text-align: center;
+      }
+
+      .hero-copy h1 {
+        margin: 0;
+        font-family: "Viaoda Libre", serif;
+        font-size: clamp(5.5rem, 17vw, 14rem);
+        font-weight: 400;
+        line-height: 0.9;
+        letter-spacing: 0.035em;
+      }
+
+      .tagline {
+        margin: 22px 0 0;
+        font-family: "Pinyon Script", cursive;
+        font-size: clamp(2rem, 5vw, 4rem);
+        font-style: italic;
+        line-height: 1.1;
+      }
+
+      .intro {
+        padding: clamp(76px, 11vw, 148px) 24px clamp(74px, 9vw, 120px);
+        text-align: center;
+      }
+
+      .intro-copy {
+        max-width: 600px;
+        margin: 0 auto;
+        font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+        line-height: 2;
+        color: #fff;
+      }
+
+      .portfolio {
+        width: min(100% - 96px, 1440px);
+        margin: 0 auto;
+        padding: 0 0 clamp(80px, 12vw, 160px);
+      }
+
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .portfolio-image {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        filter: grayscale(1);
+      }
+
+      .portfolio-image:nth-child(1) {
+        object-position: 50% 50%;
+      }
+
+      .portfolio-image:nth-child(2) {
+        object-position: 50% 45%;
+      }
+
+      .portfolio-image:nth-child(3) {
+        object-position: 50% 50%;
+      }
+
+      .site-footer {
+        padding: 26px 24px 32px;
+        border-top: 1px solid rgb(255 255 255 / 20%);
+        text-align: center;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+      }
+
+      @media (max-width: 700px) {
+        .site-header,
+        .portfolio {
+          width: min(100% - 40px, 560px);
+        }
+
+        .site-header {
+          flex-direction: column;
+          gap: 20px;
+          padding: 24px 0;
+        }
+
+        .site-nav {
+          width: 100%;
+          justify-content: center;
+          gap: clamp(18px, 6vw, 34px);
+          font-size: 0.68rem;
+        }
+
+        .hero-copy {
+          padding-bottom: 80px;
+        }
+
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+
+        .portfolio-image {
+          aspect-ratio: 4 / 3;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <header class="site-header">
+          <a class="wordmark" href="index.html" aria-label="Karina 首頁">Karina</a>
+          <nav class="site-nav" aria-label="主要導覽">
+            <a href="index.html" aria-current="page">首頁</a>
+            <a href="gallery.html">作品集</a>
+            <a href="about.html">關於</a>
+            <a href="contact.html">聯繫</a>
+          </nav>
+        </header>
+        <div class="hero-copy">
+          <h1 id="hero-title">Karina</h1>
+          <p class="tagline">Capturing Love Stories</p>
+        </div>
+      </section>
+
+      <section class="intro" id="about" aria-labelledby="about-title">
+        <h2 id="about-title">關於 Karina</h2>
+        <p class="intro-copy">
+          用鏡頭收藏相遇、承諾與相愛的日常。以自然真摯的影像，為你們的故事留下值得一再回望的模樣。
+        </p>
+      </section>
+
+      <section class="portfolio" id="portfolio" aria-labelledby="portfolio-title">
+        <h2 id="portfolio-title">作品集</h2>
+        <div class="portfolio-grid">
+          <img class="portfolio-image" src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1000&q=85" alt="新人在婚禮上相擁" loading="lazy">
+          <img class="portfolio-image" src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=85" alt="婚禮儀式中的親密時刻" loading="lazy">
+          <img class="portfolio-image" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85" alt="新人在戶外婚禮中牽手" loading="lazy">
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">KARINA WEDDING PHOTOGRAPHY</footer>
+  </body>
+</html>
