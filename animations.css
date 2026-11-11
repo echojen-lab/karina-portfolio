@@ -1,3 +1,76 @@
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body.is-locked {
+  overflow: hidden;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .site-header {
+    position: relative;
+    z-index: 30;
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .menu-toggle {
+    position: relative;
+    z-index: 21;
+    display: grid;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    place-items: center;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .menu-toggle:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 3px;
+  }
+
+  .site-header .site-nav {
+    position: fixed;
+    z-index: 20;
+    inset: 0;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(28px, 7vh, 56px);
+    align-items: center;
+    background: #000;
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 420ms cubic-bezier(0.2, 0.7, 0.2, 1), visibility 0s linear 420ms;
+  }
+
+  .site-header .menu-toggle[aria-expanded="true"] + .site-nav {
+    transform: translateX(0);
+    visibility: visible;
+    transition-delay: 0s;
+  }
+
+  .site-header .site-nav a {
+    padding: 8px 12px;
+  }
+}
+
 main h1 {
   animation: title-enter 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
@@ -102,5 +175,11 @@ main h2 {
 
   .back-to-top {
     transition: none;
+  }
+
+  .site-header .site-nav,
+  .site-header .menu-toggle[aria-expanded="true"] + .site-nav {
+    transition-duration: 0.01ms;
+    transition-delay: 0s;
   }
 }

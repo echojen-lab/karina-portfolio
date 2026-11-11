@@ -1,6 +1,39 @@
 const sectionHeadings = document.querySelectorAll("main h2");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+const menuToggle = document.querySelector(".menu-toggle");
+
+if (menuToggle) {
+  const siteNav = document.querySelector(`#${menuToggle.getAttribute("aria-controls")}`);
+  const navLinks = siteNav.querySelectorAll("a");
+
+  function setMenuOpen(isOpen) {
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute("aria-label", isOpen ? "關閉導覽選單" : "開啟導覽選單");
+    menuToggle.textContent = isOpen ? "×" : "☰";
+    document.body.classList.toggle("is-locked", isOpen);
+  }
+
+  menuToggle.addEventListener("click", () => {
+    const isOpen = menuToggle.getAttribute("aria-expanded") !== "true";
+    setMenuOpen(isOpen);
+    if (isOpen) {
+      navLinks[0].focus();
+    }
+  });
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => setMenuOpen(false));
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
+      setMenuOpen(false);
+      menuToggle.focus();
+    }
+  });
+}
+
 if (!prefersReducedMotion.matches && "IntersectionObserver" in window) {
   const headingObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
